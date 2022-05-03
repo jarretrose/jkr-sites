@@ -10,7 +10,9 @@
 
     "dev-server": "nodemon server/index.js",
     "dev-client": "npm start --prefix client",
-    "start-dev": "concurrently \"npm run dev-server\" \"npm run dev-client\""
+    "start-dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
+
+    "push": "git push && git push heroku"
   },
   "engines": {
     "node": "16.14.2",
