@@ -5,9 +5,8 @@ const express = require('express');
 
 const db = require('./db');
 
-const PORT = process.env.PORT;
-const MESSAGE = process.env.MESSAGE;
-console.debug(MESSAGE);
+const SERVER_PORT = process.env.SERVER_PORT;
+const WELCOME_MESSAGE = process.env.WELCOME_MESSAGE;
 
 const app = express();
 
@@ -16,7 +15,7 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // Routes
 app.get('/api', (req, res) => {
-  res.json({ message: 'Hello World' });
+  res.json({ message: WELCOME_MESSAGE });
 });
 
 // Catch all other requests
@@ -27,8 +26,8 @@ app.get('*', (req, res) => {
 });
 
 // Listen
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+app.listen(SERVER_PORT, () => {
+  console.log(`Server listening on ${SERVER_PORT}`);
 });
 
 /*
