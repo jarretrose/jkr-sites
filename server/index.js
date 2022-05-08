@@ -2,11 +2,9 @@ require('dotenv').config();
 
 const path = require('path');
 const express = require('express');
-
 const db = require('./db');
 
-const SERVER_PORT = process.env.SERVER_PORT;
-const WELCOME_MESSAGE = process.env.WELCOME_MESSAGE;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -15,7 +13,7 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // Routes
 app.get('/api', (req, res) => {
-  res.json({ message: WELCOME_MESSAGE });
+  res.json({ message: 'Hello World' });
 });
 
 // Catch all other requests
@@ -26,8 +24,8 @@ app.get('*', (req, res) => {
 });
 
 // Listen
-app.listen(SERVER_PORT, () => {
-  console.log(`Server listening on ${SERVER_PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`);
 });
 
 /*
