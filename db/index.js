@@ -10,19 +10,4 @@ db.authenticate()
     console.log('Error connecting to the database.', err)
   );
 
-export const syncAndSeed = async () => {
-  await db.sync({ force: true });
-  return await Promise.all([]);
-};
-
 module.exports = db;
-
-// const syncAndSeed = ()=> {
-//   return conn.sync({ force: true })
-//     .then(()=> Promise.all([
-//       User.create({ name: 'moe'}),
-//       User.create({ name: 'larry'}),
-//       User.create({ name: 'curly'}),
-//     ])
-//     );
-// };
